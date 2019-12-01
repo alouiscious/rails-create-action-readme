@@ -40,3 +40,51 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Title Goes Here"], ["description", "Desc goes here..."], ["created_at", "2019-12-01 05:55:02.100783"], ["updated_at", "2019-12-01 05:55:02.100783"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/posts/new" for ::1 at 2019-11-30 23:20:46 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (98.8ms)
+Completed 200 OK in 6428ms (Views: 5663.6ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/posts" for ::1 at 2019-11-30 23:24:51 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8hnnAlolarSQV5313ODZAeq/4HCjBmK3Bis0V6HzQWXXokzEdfhpCi/K4H+F+VSqeDguq7krvB2mGcOfTeUsPA==", "title"=>"testing even more ruby", "description"=>" Rails is simply complaining that it can't find a create view template since, by default, it's trying to render a template called", "commit"=>"Submit Post"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "testing even more ruby"], ["description", " Rails is simply complaining that it can't find a create view template since, by default, it's trying to render a template called"], ["created_at", "2019-12-01 07:24:51.459612"], ["updated_at", "2019-12-01 07:24:51.459612"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 53ms (ActiveRecord: 2.7ms)
+
+
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/posts/new" for ::1 at 2019-12-01 00:40:32 -0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 33ms (Views: 23.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for ::1 at 2019-12-01 00:40:40 -0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KyRqTJnJUX0bNGbqTiDwiqxFSoipss/KYqUIvU0ZR18On8GKthRSw6SpG2AXOX0hPsKEU7OfEWDCl/91oQ8qBg==", "title"=>"testing even more ruby", "description"=>" Rails is simply complaining that it can't find a create view template since, by default, it's trying to render a template called", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "testing even more ruby"], ["description", " Rails is simply complaining that it can't find a create view template since, by default, it's trying to render a template called"], ["created_at", "2019-12-01 08:40:40.206293"], ["updated_at", "2019-12-01 08:40:40.206293"]]
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 12ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/posts/4" for ::1 at 2019-12-01 00:40:40 -0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 34ms (Views: 22.1ms | ActiveRecord: 0.2ms)
+
+
